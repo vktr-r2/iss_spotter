@@ -1,6 +1,10 @@
-const { fetchMyIP , fetchMyCoords } = require('./iss_promised');
+const { nextISSFlyOver } = require('./iss_promised');
 
 
-fetchMyIP()
-.then(fetchMyCoords)
-.then(body => console.log(body))
+nextISSFlyOver()
+  // .then((response) => {
+  //   printPassTimes(response);
+  // })
+  // .catch((error) => {
+  //   console.log("It didn't work: ", error.message);
+  // });
