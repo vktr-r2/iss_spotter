@@ -1,15 +1,16 @@
 const request = require('request-promise-native');
 
 
-const fetchMyIP = () => {
-  request('https://api.ipify.org?format=json')
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  };
+const fetchMyIP = function() {
+  return request('https://api.ipify.org?format=json');
+};
+
+
+
+const fetchMyCoords = (JSONstring) => {
+    let ip = JSON.parse(JSONstring).ip;
+    return request(`https://freegeoip.app/json/${ip}`)
+};
 
 
 
@@ -18,4 +19,4 @@ const fetchMyIP = () => {
 
 
 
-  module.exports = { fetchMyIP }
+  module.exports = { fetchMyIP, fetchMyCoords }
